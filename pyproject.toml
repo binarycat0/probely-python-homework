@@ -10,8 +10,32 @@ python = "^3.11"
 django = "^5.2"
 djangorestframework = "^3.16.0"
 requests = "^2.32.3"
+black = "^25.1.0"
+mypy = "^1.15.0"
+isort = "^6.0.1"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.mypy]
+mypy_path = "src"
+namespace_packages = true
+explicit_package_bases = true
+exclude = [
+    "tests",
+    "src/manage.py",
+    "src/probely/wsgi.py",
+    "src/probely/asgi.py",
+    "src/findings/apps.py",
+    "migrations",
+]
+
+[tool.black]
+exclude = "src/manage.py, */migrations/*"
+
+
+[tool.isort]
+multi_line_output = 3
