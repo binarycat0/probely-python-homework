@@ -1,4 +1,4 @@
-from rest_framework.fields import IntegerField, CharField, JSONField
+from rest_framework.fields import CharField, IntegerField, JSONField
 from rest_framework.serializers import ModelSerializer
 
 from findings.models import Finding
