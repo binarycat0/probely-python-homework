@@ -26,7 +26,7 @@ migrate:
 
 shell:
 	poetry run python src/manage.py \
-	shell \
+	shell -i ipython \
 	--pythonpath src \
 	--settings probely.settings
 

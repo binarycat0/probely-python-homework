@@ -13,6 +13,11 @@ requests = "^2.32.3"
 black = "^25.1.0"
 mypy = "^1.15.0"
 isort = "^6.0.1"
+pytest = "^8.3.5"
+pytest-mock = "^3.14.0"
+pytest-django = "^4.11.0"
+ipython = "^9.0.2"
+django-filter = "^25.1"
 
 
 [build-system]
@@ -22,6 +27,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
 mypy_path = "src"
+follow_untyped_imports = true
 namespace_packages = true
 explicit_package_bases = true
 exclude = [
