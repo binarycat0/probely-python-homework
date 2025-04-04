@@ -45,3 +45,8 @@ exclude = "src/manage.py, */migrations/*"
 
 [tool.isort]
 multi_line_output = 3
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+DJANGO_SETTINGS_MODULE = "probely.settings"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]

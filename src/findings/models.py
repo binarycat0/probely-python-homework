@@ -2,6 +2,8 @@ from django.db import models
 
 
 class Finding(models.Model):
+    objects: models.Manager
+
     id = models.BigAutoField(primary_key=True)
     url = models.CharField(max_length=255)
     path = models.CharField(max_length=255)

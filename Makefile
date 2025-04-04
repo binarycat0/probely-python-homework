@@ -12,6 +12,13 @@ lint:
 	poetry run isort ./src;
 	poetry run mypy .;
 
+test:
+	poetry run python src/manage.py \
+	test \
+	--pythonpath src \
+	--settings probely.settings \
+	--pattern="*_tests.py"
+
 migrations:
 	poetry run python src/manage.py \
 	makemigrations \
