@@ -4,7 +4,8 @@ from argparse import ArgumentParser
 
 from django.core.management import BaseCommand
 
-from probely.clients.probely import ProbelyApi
+from findings.models import Finding
+from probely.clients.probely import ProbelyApi, ProbelyApiException
 
 logger = logging.getLogger(__name__)
 
@@ -32,4 +33,24 @@ class Command(BaseCommand):
         auth_token = PROBELY_TOKEN or options["auth_token"]
         api = ProbelyApi(auth_token)
 
-        findings = api.get_target_findings(target)
+        try:
+            target_findings = api.get_target_findings(target)
+        except ProbelyApiException:
+            logger.error(
+                "Something went wrong while retrieving Findings from Probely. Check logs."
+            )
+            return
+
+        Finding.objects.bulk_create(
+            [
+                Finding(
+                    url=f.get("url"),
+                    path=f.get("path"),
+                    method=f.get("method"),
+                    target_id=f.get("target", {}).get("id"),
+                    definition_id=f.get("definition", {}).get("id"),
+                    scans=f.get("scans"),
+                )
+                for f in target_findings
+            ]
+        )

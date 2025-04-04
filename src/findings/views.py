@@ -28,7 +28,7 @@ class FindingView(ReadOnlyModelViewSet):
             data = self._filter_by_scans_sqlite(scans)
             return Finding.objects.filter(id__in=[d.id for d in data])
 
-        return Finding.objects.filter(scans__0=scans)
+        return Finding.objects.all()
 
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)

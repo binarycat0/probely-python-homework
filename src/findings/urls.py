@@ -7,6 +7,4 @@ router = routers.DefaultRouter()
 router.register(r"findings", FindingView, "finding")
 
 
-urlpatterns = [
-    path("", include(router.urls)),
-]
+urlpatterns = router.urls

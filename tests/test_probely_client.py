@@ -18,7 +18,9 @@ def target_id() -> str:
 
 @pytest.fixture
 def mock_response() -> dict[str, Any]:
-    f = open(os.path.join(os.path.dirname(__file__), "fixtures/findings_response.json"), 'r')
+    f = open(
+        os.path.join(os.path.dirname(__file__), "fixtures/findings_response.json"), "r"
+    )
     return json.load(f)
 
 
@@ -28,15 +30,16 @@ class TestProbelyApiClient:
         result = mocker.MagicMock()
         result.raise_for_status = mocker.MagicMock(return_value=True)
         result.json = mocker.MagicMock(return_value=mock_response)
-        with mocker.patch("requests.get", return_value=result):
-            findings = api.get_target_findings(target_id)
+
+        mocker.patch("requests.get", return_value=result)
+        findings = api.get_target_findings(target_id)
 
         assert findings
         assert len(findings) == 2
 
     def test_get__error(self, mocker, api, target_id):
         with pytest.raises(ProbelyApiException) as ex:
-            with mocker.patch("requests.get", side_effect=Exception("test")):
-                api.get_target_findings(target_id)
+            mocker.patch("requests.get", side_effect=Exception("test"))
+            api.get_target_findings(target_id)
 
         assert ex

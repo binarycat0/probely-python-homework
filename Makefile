@@ -13,11 +13,7 @@ lint:
 	poetry run mypy .;
 
 test:
-	poetry run python src/manage.py \
-	test \
-	--pythonpath src \
-	--settings probely.settings \
-	--pattern="*_tests.py"
+	poetry run pytest
 
 migrations:
 	poetry run python src/manage.py \
@@ -37,8 +33,8 @@ shell:
 	--pythonpath src \
 	--settings probely.settings
 
-load_findings:
+retrieve_findings:
 	poetry run python src/manage.py \
-	load_findings \
+	retrieve_findings \
 	--pythonpath src \
 	--settings probely.settings
