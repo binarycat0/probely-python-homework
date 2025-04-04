@@ -1,0 +1,101 @@
+{
+  "count": 24,
+  "page_total": 1,
+  "page": 1,
+  "length": 10,
+  "results": [
+    {
+      "id": 11,
+      "target": {
+        "id": "2GQXX9RWDTeo"
+      },
+      "scans": [
+        "2eYtm8wqiIaw",
+        "39fhzpXou5AS",
+        "3jEA8sZ2cEU2",
+        "42AEbBabitWZ",
+        "49VsM3ZAw2B6",
+        "4BmU0UXo6Dim",
+        "ss8GzkJTxZwe"
+      ],
+      "labels": [],
+      "fix": "The application should be configured...",
+      "requests": [
+        {
+          "request": "```\nGET...```",
+          "response": "```\nHTTP/1.1 200 OK...```"
+        }
+      ],
+      "evidence": "\nWe made an HTTP request to...",
+      "extra": "",
+      "definition": {
+        "id": "0fR9GA5lgbo6",
+        "name": "Unencrypted communications",
+        "desc": "The application allows clients to..."
+      },
+      "url": "http://example.com/",
+      "path": "http://example.com/",
+      "method": "get",
+      "insertion_point": "",
+      "parameter": "",
+      "value": "",
+      "params": {},
+      "assignee": null,
+      "state": "notfixed",
+      "severity": 30,
+      "cvss_score": 7.4,
+      "cvss_vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+      "last_found": "2024-03-27T10:30:05.643856Z",
+      "retesting": false,
+      "new": false
+    },
+    {
+      "id": 33,
+      "target": {
+        "id": "2GQXX9RWDTeo"
+      },
+      "scans": [
+        "3jEA8sZ2cEU2",
+        "49VsM3ZAw2B6",
+        "4BmU0UXo6Dim"
+      ],
+      "labels": [],
+      "fix": "To fix an SQL Injection you should...",
+      "requests": [
+        {
+          "request": "```\nPOST...```",
+          "response": "```\nHTTP/1.1 200 OK...```"
+        }
+      ],
+      "evidence": "\n\nAs evidence that is possible...",
+      "extra": "",
+      "definition": {
+        "id": "xnV8PJVmSoLS",
+        "name": "SQL Injection",
+        "desc": "SQL Injections are the most common..."
+      },
+      "url": "http://example.com/bank/ccApply",
+      "path": "http://example.com/bank/ccApply",
+      "method": "post",
+      "insertion_point": "request_body",
+      "parameter": "passwd",
+      "value": "...",
+      "params": {
+        "passwd": [
+          "..."
+        ],
+        "Submit": [
+          "Submit"
+        ]
+      },
+      "assignee": null,
+      "state": "notfixed",
+      "severity": 30,
+      "cvss_score": 7.7,
+      "cvss_vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N",
+      "last_found": "2024-03-27T09:56:19.772053Z",
+      "retesting": false,
+      "new": false
+    }
+  ]
+}
