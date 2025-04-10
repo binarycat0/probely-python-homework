@@ -1,4 +1,4 @@
-# probely-python-exercise
+# probely-python-homework
 
 ## poetry
     https://python-poetry.org/docs/#installation
